@@ -1,0 +1,7 @@
+{
+  "package_name": "roverc",
+  "non_idl_tuples": [
+    "/home/robotique/microros_ws/src/roverc:msg/RGB.msg",
+    "/home/robotique/microros_ws/src/roverc:msg/WheelSpeed.msg"
+  ]
+}

@@ -1,0 +1,16 @@
+/home/robotique/microros_ws/install/robot/lib/robot/algo_node
+/home/robotique/microros_ws/install/robot/share/ament_index/resource_index/package_run_dependencies/robot
+/home/robotique/microros_ws/install/robot/share/ament_index/resource_index/parent_prefix_path/robot
+/home/robotique/microros_ws/install/robot/share/robot/environment/ament_prefix_path.sh
+/home/robotique/microros_ws/install/robot/share/robot/environment/ament_prefix_path.dsv
+/home/robotique/microros_ws/install/robot/share/robot/environment/path.sh
+/home/robotique/microros_ws/install/robot/share/robot/environment/path.dsv
+/home/robotique/microros_ws/install/robot/share/robot/local_setup.bash
+/home/robotique/microros_ws/install/robot/share/robot/local_setup.sh
+/home/robotique/microros_ws/install/robot/share/robot/local_setup.zsh
+/home/robotique/microros_ws/install/robot/share/robot/local_setup.dsv
+/home/robotique/microros_ws/install/robot/share/robot/package.dsv
+/home/robotique/microros_ws/install/robot/share/ament_index/resource_index/packages/robot
+/home/robotique/microros_ws/install/robot/share/robot/cmake/robotConfig.cmake
+/home/robotique/microros_ws/install/robot/share/robot/cmake/robotConfig-version.cmake
+/home/robotique/microros_ws/install/robot/share/robot/package.xml
