@@ -28,8 +28,8 @@ private:
 	{
 		roverc::msg::WheelSpeed wheels;
 		wheels.front_right = 40;
-		wheels.front_left = 40;
-		wheels.rear_right = 40;
+		wheels.front_left = -40;
+		wheels.rear_right = -43;
 		wheels.rear_left = 40;
 		wheels_pub_->publish(wheels);
 	}

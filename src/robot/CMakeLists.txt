@@ -24,9 +24,12 @@ find_package(roverc REQUIRED)
 
 add_executable(algo_node src/algo_node.cpp)
 ament_target_dependencies(algo_node rclcpp geometry_msgs std_msgs roverc)
+add_executable(motor_controller src/motor_controller.cpp)
+ament_target_dependencies(motor_controller rclcpp geometry_msgs std_msgs roverc)
 
 install(TARGETS 
   algo_node
+  motor_controller
   DESTINATION lib/${PROJECT_NAME}) 
 
 ament_package()
