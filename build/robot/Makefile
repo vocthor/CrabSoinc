@@ -223,6 +223,19 @@ motor_controller/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_controller.dir/build.make CMakeFiles/motor_controller.dir/build
 .PHONY : motor_controller/fast
 
+#=============================================================================
+# Target rules for targets named tof_servoing
+
+# Build rule for target.
+tof_servoing: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tof_servoing
+.PHONY : tof_servoing
+
+# fast build rule for target.
+tof_servoing/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tof_servoing.dir/build.make CMakeFiles/tof_servoing.dir/build
+.PHONY : tof_servoing/fast
+
 src/algo_node.o: src/algo_node.cpp.o
 .PHONY : src/algo_node.o
 
@@ -271,6 +284,30 @@ src/motor_controller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_controller.dir/build.make CMakeFiles/motor_controller.dir/src/motor_controller.cpp.s
 .PHONY : src/motor_controller.cpp.s
 
+src/tof_servoing.o: src/tof_servoing.cpp.o
+.PHONY : src/tof_servoing.o
+
+# target to build an object file
+src/tof_servoing.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tof_servoing.dir/build.make CMakeFiles/tof_servoing.dir/src/tof_servoing.cpp.o
+.PHONY : src/tof_servoing.cpp.o
+
+src/tof_servoing.i: src/tof_servoing.cpp.i
+.PHONY : src/tof_servoing.i
+
+# target to preprocess a source file
+src/tof_servoing.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tof_servoing.dir/build.make CMakeFiles/tof_servoing.dir/src/tof_servoing.cpp.i
+.PHONY : src/tof_servoing.cpp.i
+
+src/tof_servoing.s: src/tof_servoing.cpp.s
+.PHONY : src/tof_servoing.s
+
+# target to generate assembly for a file
+src/tof_servoing.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tof_servoing.dir/build.make CMakeFiles/tof_servoing.dir/src/tof_servoing.cpp.s
+.PHONY : src/tof_servoing.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -288,12 +325,16 @@ help:
 	@echo "... uninstall"
 	@echo "... algo_node"
 	@echo "... motor_controller"
+	@echo "... tof_servoing"
 	@echo "... src/algo_node.o"
 	@echo "... src/algo_node.i"
 	@echo "... src/algo_node.s"
 	@echo "... src/motor_controller.o"
 	@echo "... src/motor_controller.i"
 	@echo "... src/motor_controller.s"
+	@echo "... src/tof_servoing.o"
+	@echo "... src/tof_servoing.i"
+	@echo "... src/tof_servoing.s"
 .PHONY : help
 
 

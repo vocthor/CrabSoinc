@@ -65,6 +65,7 @@ CMAKE_BINARY_DIR = /home/robotique/microros_ws/build/robot
 # The main recursive "all" target.
 all: CMakeFiles/algo_node.dir/all
 all: CMakeFiles/motor_controller.dir/all
+all: CMakeFiles/tof_servoing.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -76,6 +77,7 @@ clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/robot_uninstall.dir/clean
 clean: CMakeFiles/algo_node.dir/clean
 clean: CMakeFiles/motor_controller.dir/clean
+clean: CMakeFiles/tof_servoing.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -181,6 +183,32 @@ motor_controller: CMakeFiles/motor_controller.dir/rule
 CMakeFiles/motor_controller.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_controller.dir/build.make CMakeFiles/motor_controller.dir/clean
 .PHONY : CMakeFiles/motor_controller.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/tof_servoing.dir
+
+# All Build rule for target.
+CMakeFiles/tof_servoing.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tof_servoing.dir/build.make CMakeFiles/tof_servoing.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tof_servoing.dir/build.make CMakeFiles/tof_servoing.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotique/microros_ws/build/robot/CMakeFiles --progress-num=5,6 "Built target tof_servoing"
+.PHONY : CMakeFiles/tof_servoing.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tof_servoing.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotique/microros_ws/build/robot/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tof_servoing.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotique/microros_ws/build/robot/CMakeFiles 0
+.PHONY : CMakeFiles/tof_servoing.dir/rule
+
+# Convenience name for target.
+tof_servoing: CMakeFiles/tof_servoing.dir/rule
+.PHONY : tof_servoing
+
+# clean rule for target.
+CMakeFiles/tof_servoing.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tof_servoing.dir/build.make CMakeFiles/tof_servoing.dir/clean
+.PHONY : CMakeFiles/tof_servoing.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
