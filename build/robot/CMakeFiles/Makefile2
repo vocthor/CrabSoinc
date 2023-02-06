@@ -65,7 +65,7 @@ CMAKE_BINARY_DIR = /home/robotique/microros_ws/build/robot
 # The main recursive "all" target.
 all: CMakeFiles/algo_node.dir/all
 all: CMakeFiles/motor_controller.dir/all
-all: CMakeFiles/tof_servoing.dir/all
+all: CMakeFiles/line_servoing_front.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -77,7 +77,7 @@ clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/robot_uninstall.dir/clean
 clean: CMakeFiles/algo_node.dir/clean
 clean: CMakeFiles/motor_controller.dir/clean
-clean: CMakeFiles/tof_servoing.dir/clean
+clean: CMakeFiles/line_servoing_front.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -165,7 +165,7 @@ CMakeFiles/algo_node.dir/clean:
 CMakeFiles/motor_controller.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_controller.dir/build.make CMakeFiles/motor_controller.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_controller.dir/build.make CMakeFiles/motor_controller.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotique/microros_ws/build/robot/CMakeFiles --progress-num=3,4 "Built target motor_controller"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotique/microros_ws/build/robot/CMakeFiles --progress-num=5,6 "Built target motor_controller"
 .PHONY : CMakeFiles/motor_controller.dir/all
 
 # Build rule for subdir invocation for target.
@@ -185,30 +185,30 @@ CMakeFiles/motor_controller.dir/clean:
 .PHONY : CMakeFiles/motor_controller.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/tof_servoing.dir
+# Target rules for target CMakeFiles/line_servoing_front.dir
 
 # All Build rule for target.
-CMakeFiles/tof_servoing.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tof_servoing.dir/build.make CMakeFiles/tof_servoing.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tof_servoing.dir/build.make CMakeFiles/tof_servoing.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotique/microros_ws/build/robot/CMakeFiles --progress-num=5,6 "Built target tof_servoing"
-.PHONY : CMakeFiles/tof_servoing.dir/all
+CMakeFiles/line_servoing_front.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_servoing_front.dir/build.make CMakeFiles/line_servoing_front.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_servoing_front.dir/build.make CMakeFiles/line_servoing_front.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotique/microros_ws/build/robot/CMakeFiles --progress-num=3,4 "Built target line_servoing_front"
+.PHONY : CMakeFiles/line_servoing_front.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/tof_servoing.dir/rule: cmake_check_build_system
+CMakeFiles/line_servoing_front.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotique/microros_ws/build/robot/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tof_servoing.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/line_servoing_front.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotique/microros_ws/build/robot/CMakeFiles 0
-.PHONY : CMakeFiles/tof_servoing.dir/rule
+.PHONY : CMakeFiles/line_servoing_front.dir/rule
 
 # Convenience name for target.
-tof_servoing: CMakeFiles/tof_servoing.dir/rule
-.PHONY : tof_servoing
+line_servoing_front: CMakeFiles/line_servoing_front.dir/rule
+.PHONY : line_servoing_front
 
 # clean rule for target.
-CMakeFiles/tof_servoing.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tof_servoing.dir/build.make CMakeFiles/tof_servoing.dir/clean
-.PHONY : CMakeFiles/tof_servoing.dir/clean
+CMakeFiles/line_servoing_front.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_servoing_front.dir/build.make CMakeFiles/line_servoing_front.dir/clean
+.PHONY : CMakeFiles/line_servoing_front.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
