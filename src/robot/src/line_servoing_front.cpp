@@ -24,12 +24,15 @@ public:
 		this->get_parameter("fonce", fonce_);
 		this->declare_parameter<int>("couleur", 600);
 		this->get_parameter("couleur", couleur_);
-		this->declare_parameter<double>("lambdaKp", 0.05);
+		this->declare_parameter<double>("lambdaKp", 0.04);
 		this->get_parameter("lambdaKp", lambda_Kp_);
+		this->declare_parameter<double>("lambdaKd", 0.04);
+		this->get_parameter("lambdaKd", lambda_Kd_);
+		previousError_ = 0;
 	}
 
 private:
-	void rgbcCallback(const std_msgs::msg::UInt16MultiArray::SharedPtr msg) const
+	void rgbcCallback(const std_msgs::msg::UInt16MultiArray::SharedPtr msg)
 	{
 		geometry_msgs::msg::Twist twist;
 
@@ -48,12 +51,15 @@ private:
 		// 	twist.angular.set__z(0.0);
 		// }
 
-		twist.angular.set__z((couleur_ - msg->data[3]) * lambda_Kp_/10);
-		twist.linear.set__x(0.5 / (0.5 + abs(twist.angular.z)));
+		int error = msg->data[3] - couleur_;
+		twist.angular.set__z(error * lambda_Kp_ / 10 + (error - previousError_) * lambda_Kd_);
+		twist.linear.set__x(0.5 / (1 + 0.7 * abs(twist.angular.z)));
+		previousError_ = error;
 		RCLCPP_INFO(this->get_logger(), "Twist: [lx: %f, ly: %f, wz: %f]", twist.linear.x, twist.linear.y, twist.angular.z);
 		twist_pub_->publish(twist);
 		// RCLCPP_INFO(this->get_logger(), "Rgbc: [%f]", msg->data);
 	}
+
 	/*
 	noir 34 42 52 | 35 43 35 | 35 44 54 | 36 46 57; 127
 
@@ -70,6 +76,8 @@ private:
 	int fonce_;
 	int couleur_;
 	double lambda_Kp_;
+	double lambda_Kd_;
+	int previousError_;
 };
 
 int main(int argc, char *argv[])
