@@ -28,11 +28,14 @@ add_executable(motor_controller src/motor_controller.cpp)
 ament_target_dependencies(motor_controller rclcpp geometry_msgs std_msgs roverc)
 add_executable(line_servoing_front src/line_servoing_front.cpp)
 ament_target_dependencies(line_servoing_front rclcpp geometry_msgs std_msgs roverc)
+add_executable(line_servoing_dual src/line_servoing_dual.cpp)
+ament_target_dependencies(line_servoing_dual rclcpp geometry_msgs std_msgs roverc)
 
 install(TARGETS 
   algo_node
   motor_controller
   line_servoing_front
+  line_servoing_dual
   DESTINATION lib/${PROJECT_NAME}) 
 
 ament_package()
