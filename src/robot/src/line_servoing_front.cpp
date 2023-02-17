@@ -22,7 +22,7 @@ public:
 		this->get_parameter("clair", clair_);
 		this->declare_parameter<int>("fonce", 120);
 		this->get_parameter("fonce", fonce_);
-		this->declare_parameter<int>("couleur", 600);
+		this->declare_parameter<int>("couleur", 700);
 		this->get_parameter("couleur", couleur_);
 		this->declare_parameter<double>("lambdaKp", 0.04);
 		this->get_parameter("lambdaKp", lambda_Kp_);
@@ -51,12 +51,13 @@ private:
 		// 	twist.angular.set__z(0.0);
 		// }
 
-		int error = msg->data[3] - couleur_;
+		int error = 1 * (msg->data[3] - couleur_);
 		twist.angular.set__z(error * lambda_Kp_ / 10 + (error - previousError_) * lambda_Kd_);
+		twist.linear.set__y(0.035 * twist.angular.z);
 		twist.linear.set__x(0.5 / (1 + 0.7 * abs(twist.angular.z)));
-		previousError_ = error;
 		RCLCPP_INFO(this->get_logger(), "Twist: [lx: %f, ly: %f, wz: %f]", twist.linear.x, twist.linear.y, twist.angular.z);
 		twist_pub_->publish(twist);
+		previousError_ = error;
 		// RCLCPP_INFO(this->get_logger(), "Rgbc: [%f]", msg->data);
 	}
 
