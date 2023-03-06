@@ -25,20 +25,23 @@ public:
 		this->get_parameter("fonce", fonce_);
 		this->declare_parameter<int>("couleur", 600);
 		this->get_parameter("couleur", couleur_);
-		this->declare_parameter<double>("lambdaKp", 0.02);
+		this->declare_parameter<double>("lambdaKp", 0.008);
 		this->get_parameter("lambdaKp", lambda_Kp_);
-		this->declare_parameter<double>("lambdaKd", 0.04);
+		this->declare_parameter<double>("lambdaKd", 0.01);
 		this->get_parameter("lambdaKd", lambda_Kd_);
+		this->declare_parameter<double>("lambdaKi", 0.0001);
+		this->get_parameter("lambdaKi", lambda_Ki_);
 	}
 
 private:
 	void rgbcCallback(const std_msgs::msg::UInt16MultiArray::SharedPtr msg)
 	{
 		int error = 1 * (msg->data[3] - couleur_);
-		twist.angular.set__z(error * lambda_Kp_ + (error - previousError_) * lambda_Kd_);
+		sumError_ += error;
+		twist.angular.set__z(1.3 * (error * lambda_Kp_ + sumError_ * lambda_Ki_ + (error - previousError_) * lambda_Kd_));
 		twist.linear.set__y(0.035 * twist.angular.z);
 		flagC1 = true;
-		twist.linear.set__x(0.5 / (1 + 0.5 * abs(twist.angular.z)));
+		twist.linear.set__x(0.75 / (1 + 0.5 * abs(twist.angular.z)));
 		if (flagC2)
 		{
 			publish();
@@ -51,10 +54,11 @@ private:
 	void rgbc2Callback(const std_msgs::msg::UInt16MultiArray::SharedPtr msg)
 	{
 		int error = 1 * (msg->data[3] - (couleur_ - 80));
-		twist2.angular.set__z(-1 * (error * lambda_Kp_ + (error - previousError2_) * lambda_Kd_));
+		sumError2_ += error;
+		twist2.angular.set__z(-1 * (error * lambda_Kp_ + sumError2_ * lambda_Ki_ + (error - previousError2_) * lambda_Kd_));
 		twist2.linear.set__y(-0.035 * twist2.angular.z);
 		flagC2 = true;
-		twist.linear.set__x(0.5 / (1 + 0.5 * abs(twist.angular.z)));
+		twist.linear.set__x(0.75 / (1 + 0.5 * abs(twist.angular.z)));
 
 		if (flagC1)
 		{
@@ -85,8 +89,11 @@ private:
 	int couleur_;
 	double lambda_Kp_;
 	double lambda_Kd_;
+	double lambda_Ki_;
 	int previousError_ = 0;
 	int previousError2_ = 0;
+	int sumError_ = 0;
+	int sumError2_ = 0;
 	geometry_msgs::msg::Twist twist;
 	geometry_msgs::msg::Twist twist2;
 	bool flagC1 = true;
