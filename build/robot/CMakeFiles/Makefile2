@@ -67,6 +67,7 @@ all: CMakeFiles/algo_node.dir/all
 all: CMakeFiles/motor_controller.dir/all
 all: CMakeFiles/map_servoing_holonome.dir/all
 all: CMakeFiles/map_servoing_differential.dir/all
+all: CMakeFiles/map_servoing_hybrid.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -80,6 +81,7 @@ clean: CMakeFiles/algo_node.dir/clean
 clean: CMakeFiles/motor_controller.dir/clean
 clean: CMakeFiles/map_servoing_holonome.dir/clean
 clean: CMakeFiles/map_servoing_differential.dir/clean
+clean: CMakeFiles/map_servoing_hybrid.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -167,7 +169,7 @@ CMakeFiles/algo_node.dir/clean:
 CMakeFiles/motor_controller.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_controller.dir/build.make CMakeFiles/motor_controller.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_controller.dir/build.make CMakeFiles/motor_controller.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotique/microros_ws/build/robot/CMakeFiles --progress-num=7,8 "Built target motor_controller"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotique/microros_ws/build/robot/CMakeFiles --progress-num=9,10 "Built target motor_controller"
 .PHONY : CMakeFiles/motor_controller.dir/all
 
 # Build rule for subdir invocation for target.
@@ -237,6 +239,32 @@ map_servoing_differential: CMakeFiles/map_servoing_differential.dir/rule
 CMakeFiles/map_servoing_differential.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_differential.dir/build.make CMakeFiles/map_servoing_differential.dir/clean
 .PHONY : CMakeFiles/map_servoing_differential.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/map_servoing_hybrid.dir
+
+# All Build rule for target.
+CMakeFiles/map_servoing_hybrid.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_hybrid.dir/build.make CMakeFiles/map_servoing_hybrid.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_hybrid.dir/build.make CMakeFiles/map_servoing_hybrid.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/robotique/microros_ws/build/robot/CMakeFiles --progress-num=7,8 "Built target map_servoing_hybrid"
+.PHONY : CMakeFiles/map_servoing_hybrid.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/map_servoing_hybrid.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotique/microros_ws/build/robot/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/map_servoing_hybrid.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robotique/microros_ws/build/robot/CMakeFiles 0
+.PHONY : CMakeFiles/map_servoing_hybrid.dir/rule
+
+# Convenience name for target.
+map_servoing_hybrid: CMakeFiles/map_servoing_hybrid.dir/rule
+.PHONY : map_servoing_hybrid
+
+# clean rule for target.
+CMakeFiles/map_servoing_hybrid.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_hybrid.dir/build.make CMakeFiles/map_servoing_hybrid.dir/clean
+.PHONY : CMakeFiles/map_servoing_hybrid.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

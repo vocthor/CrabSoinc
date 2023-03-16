@@ -2,6 +2,7 @@
 /home/robotique/microros_ws/install/robot/lib/robot/motor_controller
 /home/robotique/microros_ws/install/robot/lib/robot/map_servoing_holonome
 /home/robotique/microros_ws/install/robot/lib/robot/map_servoing_differential
+/home/robotique/microros_ws/install/robot/lib/robot/map_servoing_hybrid
 /home/robotique/microros_ws/install/robot/share/ament_index/resource_index/package_run_dependencies/robot
 /home/robotique/microros_ws/install/robot/share/ament_index/resource_index/parent_prefix_path/robot
 /home/robotique/microros_ws/install/robot/share/robot/environment/ament_prefix_path.sh

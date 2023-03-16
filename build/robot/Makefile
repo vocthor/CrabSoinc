@@ -249,6 +249,19 @@ map_servoing_differential/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_differential.dir/build.make CMakeFiles/map_servoing_differential.dir/build
 .PHONY : map_servoing_differential/fast
 
+#=============================================================================
+# Target rules for targets named map_servoing_hybrid
+
+# Build rule for target.
+map_servoing_hybrid: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 map_servoing_hybrid
+.PHONY : map_servoing_hybrid
+
+# fast build rule for target.
+map_servoing_hybrid/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_hybrid.dir/build.make CMakeFiles/map_servoing_hybrid.dir/build
+.PHONY : map_servoing_hybrid/fast
+
 src/algo_node.o: src/algo_node.cpp.o
 .PHONY : src/algo_node.o
 
@@ -321,6 +334,30 @@ src/map_servoing_holonome.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_holonome.dir/build.make CMakeFiles/map_servoing_holonome.dir/src/map_servoing_holonome.cpp.s
 .PHONY : src/map_servoing_holonome.cpp.s
 
+src/map_servoing_hybrid.o: src/map_servoing_hybrid.cpp.o
+.PHONY : src/map_servoing_hybrid.o
+
+# target to build an object file
+src/map_servoing_hybrid.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_hybrid.dir/build.make CMakeFiles/map_servoing_hybrid.dir/src/map_servoing_hybrid.cpp.o
+.PHONY : src/map_servoing_hybrid.cpp.o
+
+src/map_servoing_hybrid.i: src/map_servoing_hybrid.cpp.i
+.PHONY : src/map_servoing_hybrid.i
+
+# target to preprocess a source file
+src/map_servoing_hybrid.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_hybrid.dir/build.make CMakeFiles/map_servoing_hybrid.dir/src/map_servoing_hybrid.cpp.i
+.PHONY : src/map_servoing_hybrid.cpp.i
+
+src/map_servoing_hybrid.s: src/map_servoing_hybrid.cpp.s
+.PHONY : src/map_servoing_hybrid.s
+
+# target to generate assembly for a file
+src/map_servoing_hybrid.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_hybrid.dir/build.make CMakeFiles/map_servoing_hybrid.dir/src/map_servoing_hybrid.cpp.s
+.PHONY : src/map_servoing_hybrid.cpp.s
+
 src/motor_controller.o: src/motor_controller.cpp.o
 .PHONY : src/motor_controller.o
 
@@ -363,6 +400,7 @@ help:
 	@echo "... algo_node"
 	@echo "... map_servoing_differential"
 	@echo "... map_servoing_holonome"
+	@echo "... map_servoing_hybrid"
 	@echo "... motor_controller"
 	@echo "... src/algo_node.o"
 	@echo "... src/algo_node.i"
@@ -373,6 +411,9 @@ help:
 	@echo "... src/map_servoing_holonome.o"
 	@echo "... src/map_servoing_holonome.i"
 	@echo "... src/map_servoing_holonome.s"
+	@echo "... src/map_servoing_hybrid.o"
+	@echo "... src/map_servoing_hybrid.i"
+	@echo "... src/map_servoing_hybrid.s"
 	@echo "... src/motor_controller.o"
 	@echo "... src/motor_controller.i"
 	@echo "... src/motor_controller.s"

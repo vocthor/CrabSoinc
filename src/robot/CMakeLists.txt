@@ -30,12 +30,15 @@ add_executable(map_servoing_holonome src/map_servoing_holonome.cpp)
 ament_target_dependencies(map_servoing_holonome rclcpp geometry_msgs std_msgs roverc)
 add_executable(map_servoing_differential src/map_servoing_differential.cpp)
 ament_target_dependencies(map_servoing_differential rclcpp geometry_msgs std_msgs roverc)
+add_executable(map_servoing_hybrid src/map_servoing_hybrid.cpp)
+ament_target_dependencies(map_servoing_hybrid rclcpp geometry_msgs std_msgs roverc)
 
 install(TARGETS 
   algo_node
   motor_controller
   map_servoing_holonome
   map_servoing_differential
+  map_servoing_hybrid
   DESTINATION lib/${PROJECT_NAME}) 
 
 ament_package()
