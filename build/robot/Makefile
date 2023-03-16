@@ -224,30 +224,30 @@ motor_controller/fast:
 .PHONY : motor_controller/fast
 
 #=============================================================================
-# Target rules for targets named line_servoing_front
+# Target rules for targets named map_servoing_holonome
 
 # Build rule for target.
-line_servoing_front: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 line_servoing_front
-.PHONY : line_servoing_front
+map_servoing_holonome: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 map_servoing_holonome
+.PHONY : map_servoing_holonome
 
 # fast build rule for target.
-line_servoing_front/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_servoing_front.dir/build.make CMakeFiles/line_servoing_front.dir/build
-.PHONY : line_servoing_front/fast
+map_servoing_holonome/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_holonome.dir/build.make CMakeFiles/map_servoing_holonome.dir/build
+.PHONY : map_servoing_holonome/fast
 
 #=============================================================================
-# Target rules for targets named line_servoing_dual
+# Target rules for targets named map_servoing_differential
 
 # Build rule for target.
-line_servoing_dual: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 line_servoing_dual
-.PHONY : line_servoing_dual
+map_servoing_differential: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 map_servoing_differential
+.PHONY : map_servoing_differential
 
 # fast build rule for target.
-line_servoing_dual/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_servoing_dual.dir/build.make CMakeFiles/line_servoing_dual.dir/build
-.PHONY : line_servoing_dual/fast
+map_servoing_differential/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_differential.dir/build.make CMakeFiles/map_servoing_differential.dir/build
+.PHONY : map_servoing_differential/fast
 
 src/algo_node.o: src/algo_node.cpp.o
 .PHONY : src/algo_node.o
@@ -273,53 +273,53 @@ src/algo_node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/algo_node.dir/build.make CMakeFiles/algo_node.dir/src/algo_node.cpp.s
 .PHONY : src/algo_node.cpp.s
 
-src/line_servoing_dual.o: src/line_servoing_dual.cpp.o
-.PHONY : src/line_servoing_dual.o
+src/map_servoing_differential.o: src/map_servoing_differential.cpp.o
+.PHONY : src/map_servoing_differential.o
 
 # target to build an object file
-src/line_servoing_dual.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_servoing_dual.dir/build.make CMakeFiles/line_servoing_dual.dir/src/line_servoing_dual.cpp.o
-.PHONY : src/line_servoing_dual.cpp.o
+src/map_servoing_differential.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_differential.dir/build.make CMakeFiles/map_servoing_differential.dir/src/map_servoing_differential.cpp.o
+.PHONY : src/map_servoing_differential.cpp.o
 
-src/line_servoing_dual.i: src/line_servoing_dual.cpp.i
-.PHONY : src/line_servoing_dual.i
+src/map_servoing_differential.i: src/map_servoing_differential.cpp.i
+.PHONY : src/map_servoing_differential.i
 
 # target to preprocess a source file
-src/line_servoing_dual.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_servoing_dual.dir/build.make CMakeFiles/line_servoing_dual.dir/src/line_servoing_dual.cpp.i
-.PHONY : src/line_servoing_dual.cpp.i
+src/map_servoing_differential.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_differential.dir/build.make CMakeFiles/map_servoing_differential.dir/src/map_servoing_differential.cpp.i
+.PHONY : src/map_servoing_differential.cpp.i
 
-src/line_servoing_dual.s: src/line_servoing_dual.cpp.s
-.PHONY : src/line_servoing_dual.s
+src/map_servoing_differential.s: src/map_servoing_differential.cpp.s
+.PHONY : src/map_servoing_differential.s
 
 # target to generate assembly for a file
-src/line_servoing_dual.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_servoing_dual.dir/build.make CMakeFiles/line_servoing_dual.dir/src/line_servoing_dual.cpp.s
-.PHONY : src/line_servoing_dual.cpp.s
+src/map_servoing_differential.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_differential.dir/build.make CMakeFiles/map_servoing_differential.dir/src/map_servoing_differential.cpp.s
+.PHONY : src/map_servoing_differential.cpp.s
 
-src/line_servoing_front.o: src/line_servoing_front.cpp.o
-.PHONY : src/line_servoing_front.o
+src/map_servoing_holonome.o: src/map_servoing_holonome.cpp.o
+.PHONY : src/map_servoing_holonome.o
 
 # target to build an object file
-src/line_servoing_front.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_servoing_front.dir/build.make CMakeFiles/line_servoing_front.dir/src/line_servoing_front.cpp.o
-.PHONY : src/line_servoing_front.cpp.o
+src/map_servoing_holonome.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_holonome.dir/build.make CMakeFiles/map_servoing_holonome.dir/src/map_servoing_holonome.cpp.o
+.PHONY : src/map_servoing_holonome.cpp.o
 
-src/line_servoing_front.i: src/line_servoing_front.cpp.i
-.PHONY : src/line_servoing_front.i
+src/map_servoing_holonome.i: src/map_servoing_holonome.cpp.i
+.PHONY : src/map_servoing_holonome.i
 
 # target to preprocess a source file
-src/line_servoing_front.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_servoing_front.dir/build.make CMakeFiles/line_servoing_front.dir/src/line_servoing_front.cpp.i
-.PHONY : src/line_servoing_front.cpp.i
+src/map_servoing_holonome.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_holonome.dir/build.make CMakeFiles/map_servoing_holonome.dir/src/map_servoing_holonome.cpp.i
+.PHONY : src/map_servoing_holonome.cpp.i
 
-src/line_servoing_front.s: src/line_servoing_front.cpp.s
-.PHONY : src/line_servoing_front.s
+src/map_servoing_holonome.s: src/map_servoing_holonome.cpp.s
+.PHONY : src/map_servoing_holonome.s
 
 # target to generate assembly for a file
-src/line_servoing_front.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/line_servoing_front.dir/build.make CMakeFiles/line_servoing_front.dir/src/line_servoing_front.cpp.s
-.PHONY : src/line_servoing_front.cpp.s
+src/map_servoing_holonome.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_servoing_holonome.dir/build.make CMakeFiles/map_servoing_holonome.dir/src/map_servoing_holonome.cpp.s
+.PHONY : src/map_servoing_holonome.cpp.s
 
 src/motor_controller.o: src/motor_controller.cpp.o
 .PHONY : src/motor_controller.o
@@ -361,18 +361,18 @@ help:
 	@echo "... robot_uninstall"
 	@echo "... uninstall"
 	@echo "... algo_node"
-	@echo "... line_servoing_dual"
-	@echo "... line_servoing_front"
+	@echo "... map_servoing_differential"
+	@echo "... map_servoing_holonome"
 	@echo "... motor_controller"
 	@echo "... src/algo_node.o"
 	@echo "... src/algo_node.i"
 	@echo "... src/algo_node.s"
-	@echo "... src/line_servoing_dual.o"
-	@echo "... src/line_servoing_dual.i"
-	@echo "... src/line_servoing_dual.s"
-	@echo "... src/line_servoing_front.o"
-	@echo "... src/line_servoing_front.i"
-	@echo "... src/line_servoing_front.s"
+	@echo "... src/map_servoing_differential.o"
+	@echo "... src/map_servoing_differential.i"
+	@echo "... src/map_servoing_differential.s"
+	@echo "... src/map_servoing_holonome.o"
+	@echo "... src/map_servoing_holonome.i"
+	@echo "... src/map_servoing_holonome.s"
 	@echo "... src/motor_controller.o"
 	@echo "... src/motor_controller.i"
 	@echo "... src/motor_controller.s"

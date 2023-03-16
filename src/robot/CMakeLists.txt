@@ -26,16 +26,16 @@ add_executable(algo_node src/algo_node.cpp)
 ament_target_dependencies(algo_node rclcpp geometry_msgs std_msgs roverc)
 add_executable(motor_controller src/motor_controller.cpp)
 ament_target_dependencies(motor_controller rclcpp geometry_msgs std_msgs roverc)
-add_executable(line_servoing_front src/line_servoing_front.cpp)
-ament_target_dependencies(line_servoing_front rclcpp geometry_msgs std_msgs roverc)
-add_executable(line_servoing_dual src/line_servoing_dual.cpp)
-ament_target_dependencies(line_servoing_dual rclcpp geometry_msgs std_msgs roverc)
+add_executable(map_servoing_holonome src/map_servoing_holonome.cpp)
+ament_target_dependencies(map_servoing_holonome rclcpp geometry_msgs std_msgs roverc)
+add_executable(map_servoing_differential src/map_servoing_differential.cpp)
+ament_target_dependencies(map_servoing_differential rclcpp geometry_msgs std_msgs roverc)
 
 install(TARGETS 
   algo_node
   motor_controller
-  line_servoing_front
-  line_servoing_dual
+  map_servoing_holonome
+  map_servoing_differential
   DESTINATION lib/${PROJECT_NAME}) 
 
 ament_package()

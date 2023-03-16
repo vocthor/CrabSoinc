@@ -728,6 +728,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/robot_uninstall.dir/DependInfo.cmake"
   "CMakeFiles/algo_node.dir/DependInfo.cmake"
   "CMakeFiles/motor_controller.dir/DependInfo.cmake"
-  "CMakeFiles/line_servoing_front.dir/DependInfo.cmake"
-  "CMakeFiles/line_servoing_dual.dir/DependInfo.cmake"
+  "CMakeFiles/map_servoing_holonome.dir/DependInfo.cmake"
+  "CMakeFiles/map_servoing_differential.dir/DependInfo.cmake"
   )

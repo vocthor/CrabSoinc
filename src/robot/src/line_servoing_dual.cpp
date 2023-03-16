@@ -19,10 +19,6 @@ public:
 		rgbc_sub_ = this->create_subscription<std_msgs::msg::UInt16MultiArray>("RoverC/rgbc", qos, std::bind(&LineServoingDual::rgbcCallback, this, _1));
 		rgbc2_sub_ = this->create_subscription<std_msgs::msg::UInt16MultiArray>("RoverC/rgbc2", qos, std::bind(&LineServoingDual::rgbc2Callback, this, _1));
 		twist_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("RoverC/cmd_vel", qos);
-		this->declare_parameter<int>("clair", 1200);
-		this->get_parameter("clair", clair_);
-		this->declare_parameter<int>("fonce", 120);
-		this->get_parameter("fonce", fonce_);
 		this->declare_parameter<int>("couleur", 600);
 		this->get_parameter("couleur", couleur_);
 		this->declare_parameter<double>("lambdaKp", 0.008);
@@ -38,7 +34,7 @@ private:
 	{
 		int error = 1 * (msg->data[3] - couleur_);
 		sumError_ += error;
-		twist.angular.set__z(1.3 * (error * lambda_Kp_ + sumError_ * lambda_Ki_ + (error - previousError_) * lambda_Kd_));
+		twist.angular.set__z(1.0 * (error * lambda_Kp_ + sumError_ * lambda_Ki_ + (error - previousError_) * lambda_Kd_));
 		twist.linear.set__y(0.035 * twist.angular.z);
 		flagC1 = true;
 		twist.linear.set__x(0.75 / (1 + 0.5 * abs(twist.angular.z)));
@@ -84,8 +80,6 @@ private:
 	rclcpp::Subscription<std_msgs::msg::UInt16MultiArray>::SharedPtr rgbc2_sub_;
 	rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr twist_pub_;
 	rclcpp::SensorDataQoS qos;
-	int clair_;
-	int fonce_;
 	int couleur_;
 	double lambda_Kp_;
 	double lambda_Kd_;
