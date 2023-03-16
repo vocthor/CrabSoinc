@@ -11,8 +11,8 @@
 using namespace std::chrono_literals;
 using std::placeholders::_1;
 
-#define DEST_R 110
-#define DEST_B 70
+#define DEST_R 134
+#define DEST_B 73
 
 class MapServoingDifferential : public rclcpp::Node
 {
@@ -23,7 +23,7 @@ public:
 		rgbc_sub_ = this->create_subscription<std_msgs::msg::UInt16MultiArray>("RoverC/rgbc", qos, std::bind(&MapServoingDifferential::rgbcCallback, this, _1));
 		rgbc2_sub_ = this->create_subscription<std_msgs::msg::UInt16MultiArray>("RoverC/rgbc2", qos, std::bind(&MapServoingDifferential::rgbc2Callback, this, _1));
 		twist_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("RoverC/cmd_vel", qos);
-		this->declare_parameter<double>("lambdaKp", 0.008);
+		this->declare_parameter<double>("lambdaKp", 1.0);
 		this->get_parameter("lambdaKp", lambda_Kp_);
 	}
 

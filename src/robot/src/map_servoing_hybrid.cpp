@@ -11,8 +11,8 @@
 using namespace std::chrono_literals;
 using std::placeholders::_1;
 
-#define DEST_R 110
-#define DEST_B 70
+#define DEST_R 92
+#define DEST_B 134
 
 class MapServoingHybrid : public rclcpp::Node
 {
@@ -28,30 +28,35 @@ public:
 	}
 
 private:
+	void go(const std_msgs::msg::UInt16MultiArray::SharedPtr msg)
+	{
+		distance_ = sqrt(pow(DEST_B - msg->data[2], 2) + pow(DEST_R - msg->data[0], 2));
+		double ratioDist = distance_ / 200;
+		double alpha = atan2(DEST_B - msg->data[2], DEST_R - msg->data[0]);					   // orientation vers destination
+		double thetaR = atan2(data_front_[2] - data_back_[2], data_front_[0] - data_back_[0]); // orientation dans repere
+		double rot = (thetaR - alpha);
+		if (rot > M_PI)
+			rot -= 2 * M_PI;
+		else if (rot < -M_PI)
+			rot += 2 * M_PI;
+
+		double holoX = 0.4 * cos(rot);
+		double holoY = 0.4 * sin(rot);
+		double diffX = 0.4;
+		double diffZ = 1.0 * lambda_Kp_ * rot;
+		twist.linear.set__x(holoX * (1 - ratioDist) + ratioDist * diffX);
+		twist.linear.set__y(holoY * (1 - ratioDist));
+		twist.angular.set__z(diffZ * ratioDist);
+		twist_pub_->publish(twist);
+	}
+
 	void rgbcCallback(const std_msgs::msg::UInt16MultiArray::SharedPtr msg)
 	{
 		data_front_ = msg->data;
-		distance_ = sqrt(pow(DEST_B - msg->data[2], 2) + pow(DEST_R - msg->data[0], 2));
 		flagC1 = true;
 		if (flagC2)
 		{
-			// TODO : distance en couleur ????
-			double ratioDist = 0; 
-			double alpha = atan2(DEST_B - msg->data[2], DEST_R - msg->data[0]);					   // orientation vers destination
-			double thetaR = atan2(data_front_[2] - data_back_[2], data_front_[0] - data_back_[0]); // orientation dans repere
-			double rot = (thetaR - alpha);
-			if (rot > M_PI)
-				rot -= 2 * M_PI;
-			else if (rot < -M_PI)
-				rot += 2 * M_PI;
-			double holoX = lambda_Kp_ * 0.3 * cos(thetaR - alpha);
-			double holoY = lambda_Kp_ * 0.3 * sin(thetaR - alpha);
-			double diffX = lambda_Kp_ * 0.3;
-			double diffZ = lambda_Kp_ * rot;
-			twist.linear.set__x(holoX * (1 - ratioDist) + ratioDist * diffX);
-			twist.linear.set__y(holoY * (1 - ratioDist));
-			twist.angular.set__z(diffZ * ratioDist);
-			twist_pub_->publish(twist);
+			go(msg);
 			flagC2 = false;
 		}
 	}
@@ -59,25 +64,10 @@ private:
 	void rgbc2Callback(const std_msgs::msg::UInt16MultiArray::SharedPtr msg)
 	{
 		data_back_ = msg->data;
-		distance_ = sqrt(pow(DEST_B - msg->data[2], 2) + pow(DEST_R - msg->data[0], 2));
 		flagC2 = true;
 		if (flagC1)
 		{
-			double alpha = atan2(DEST_B - msg->data[2], DEST_R - msg->data[0]);					   // orientation vers destination
-			double thetaR = atan2(data_front_[2] - data_back_[2], data_front_[0] - data_back_[0]); // orientation dans repere
-			double rot = (thetaR - alpha);
-			if (rot > M_PI)
-				rot -= 2 * M_PI;
-			else if (rot < -M_PI)
-				rot += 2 * M_PI;
-			double holoX = lambda_Kp_ *  0.3 * cos(thetaR - alpha);
-			double holoY = lambda_Kp_ *  0.3 * sin(thetaR - alpha);
-			double diffX = lambda_Kp_ *  0.3;
-			double diffZ = lambda_Kp_ *  rot;
-			twist.linear.set__x(holoX / distance_ + distance_ * diffX);
-			twist.linear.set__y(holoY / distance_);
-			twist.angular.set__z(diffZ);
-			twist_pub_->publish(twist);
+			// go(msg);
 			flagC1 = false;
 		}
 	}

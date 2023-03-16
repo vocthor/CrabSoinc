@@ -4,3 +4,6 @@ roverc.egg-info/PKG-INFO
 roverc.egg-info/SOURCES.txt
 roverc.egg-info/dependency_links.txt
 roverc.egg-info/top_level.txt
+roverc/msg/__init__.py
+roverc/msg/_rgb.py
+roverc/msg/_wheel_speed.py
