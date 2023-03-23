@@ -11,8 +11,8 @@
 using namespace std::chrono_literals;
 using std::placeholders::_1;
 
-#define DEST_R 92
-#define DEST_B 134
+#define DEST_R 200
+#define DEST_B 225
 
 class MapServoingHybrid : public rclcpp::Node
 {
@@ -40,9 +40,9 @@ private:
 		else if (rot < -M_PI)
 			rot += 2 * M_PI;
 
-		double holoX = 0.4 * cos(rot);
-		double holoY = 0.4 * sin(rot);
-		double diffX = 0.4;
+		double holoX = 0.5 * cos(rot);
+		double holoY = 0.5 * sin(rot);
+		double diffX = 0.5;
 		double diffZ = 1.0 * lambda_Kp_ * rot;
 		twist.linear.set__x(holoX * (1 - ratioDist) + ratioDist * diffX);
 		twist.linear.set__y(holoY * (1 - ratioDist));
